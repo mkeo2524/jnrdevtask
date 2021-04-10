@@ -6,7 +6,7 @@ run the optimizations.
 import numpy as np
 import math
 import time
-import cv2
+from cv2 import cv2
 import sys
 import tools
 # reload (tools)
