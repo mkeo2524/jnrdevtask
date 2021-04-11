@@ -6,11 +6,14 @@ run the optimizations.
 import numpy as np
 import math
 import time
-import cv2
+from cv2 import cv2
 import sys
 import tools
 # reload (tools)
 import matplotlib
+import os.path
+
+
 gui_env = ['TKAgg','GTKAgg','Qt4Agg','WXAgg']
 for gui in gui_env:
     try:
@@ -21,8 +24,10 @@ for gui in gui_env:
         continue
 
 def solveProblem1( im, pair, img ):
-    import os
-
+    
+   
+    
+    print(im)
     print(im)
     image = cv2.imread(im)
     p, r = tools.findCentre(image)
@@ -229,23 +234,26 @@ def warpImage( im, tForm, tForm2, pair ):
     
     return None
 
-def runP1( pair, im ):
-    p = pair
-    img = p+'/figure_'+im+'.bmp'
-    solveProblem1( img, pair, im )
+def runP1( pair, img ):
+    
+    # create path of image
+    filePath = os.path.join(os.path.dirname(os.getcwd()), 'circle-detection-and-registration', 'data', pair, 'figure_'+img+'.bmp')
+    solveProblem1( filePath, pair, img )
     return None
     
 def runP2( pair ):
-    p = pair
-    imfile1 = p+'/figure_A.bmp'
-    imfile2 = p+'/figure_B.bmp'
+    
+    # define file paths for images A & B
+    imfile1 = os.path.join(os.path.dirname(os.getcwd()), 'circle-detection-and-registration', 'data', pair, 'figure_A.bmp')
+    imfile2 = os.path.join(os.path.dirname(os.getcwd()), 'circle-detection-and-registration', 'data', pair, 'figure_B.bmp')
     solveProblem2( imfile1, imfile2, pair )
 
     return None
     
 def runP3( pair, imSet ):
-    p = pair
-    imfile1 = p+'/figure_A.bmp'
-    imfile2 = p+'/figure_B.bmp'
+    
+    # define file paths for images A & B
+    imfile1 = os.path.join(os.path.dirname(os.getcwd()), 'circle-detection-and-registration', 'data', pair, 'figure_A.bmp')
+    imfile2 = os.path.join(os.path.dirname(os.getcwd()), 'circle-detection-and-registration', 'data', pair, 'figure_B.bmp')
     solveProblem3( imfile1, imfile2, imSet, pair )
     return None
