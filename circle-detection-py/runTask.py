@@ -25,9 +25,6 @@ for gui in gui_env:
 
 def solveProblem1( im, pair, img ):
     
-   
-    
-    print(im)
     print(im)
     image = cv2.imread(im)
     p, r = tools.findCentre(image)
@@ -256,4 +253,5 @@ def runP3( pair, imSet ):
     imfile1 = os.path.join(os.path.dirname(os.getcwd()), 'circle-detection-and-registration', 'data', pair, 'figure_A.bmp')
     imfile2 = os.path.join(os.path.dirname(os.getcwd()), 'circle-detection-and-registration', 'data', pair, 'figure_B.bmp')
     solveProblem3( imfile1, imfile2, imSet, pair )
+    
     return None
