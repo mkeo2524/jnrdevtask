@@ -25,7 +25,7 @@ for gui in gui_env:
 
 def solveProblem1( im, pair, img ):
     
-    print(im)
+
     image = cv2.imread(im)
     p, r = tools.findCentre(image)
     
@@ -33,7 +33,7 @@ def solveProblem1( im, pair, img ):
     if not os.path.exists(outputDir):
         os.makedirs(outputDir)
     
-    file = open(outputDir+'/pos_rad_'+img+'.csv', "wb")
+    file = open(outputDir+'/pos_rad_'+img+'.csv', "w")
     file.write('Circle, Position (x y), Radius (px)\n')
     with open(outputDir+'/pos_rad_'+img+'.csv', "a") as csv_file:
         numCircles = 0

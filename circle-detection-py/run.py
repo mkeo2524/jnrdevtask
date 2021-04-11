@@ -58,7 +58,6 @@ def validate_inputs(opts, args):
     elif problem_num == '3' and (pair == None or T3_test == None):
         raise Exception("Please check requirements to test task 3")
     
-        
     return problem_num, pair, image_num, T3_test
 
 if __name__ == "__main__":
