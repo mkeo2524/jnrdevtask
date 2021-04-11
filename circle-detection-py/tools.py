@@ -82,12 +82,11 @@ def findCentre(image):
         
         c = (midc12 + midc34) * 0.5
         centreList.append(c)
-        radius = (dist.euclidean([midc12[0], midc12[1]], [midc34[0], midc34[1]])) * 0.5
-        print(radius)
+        radius = (dist.euclidean((midc12[0], midc12[1]), (midc34[0], midc34[1]))) * 0.5
         # ~ im = plt.imread(image)
         # ~ implot = plt.imshow(image)
         # ~ plt.scatter(c[0], c[1], s=10)
-        
+        radiusList.append(radius)
     centreList = np.asarray(centreList)
 
     # ~ plt.show(0)

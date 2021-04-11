@@ -24,11 +24,9 @@ for gui in gui_env:
         continue
 
 def solveProblem1( im, pair, img ):
-    
-
     image = cv2.imread(im)
+  
     p, r = tools.findCentre(image)
-    
     outputDir = 'output/'+pair+'/'
     if not os.path.exists(outputDir):
         os.makedirs(outputDir)
