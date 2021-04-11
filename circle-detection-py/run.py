@@ -12,23 +12,37 @@ for runP1
 python run.py problem pair image# P3SET
 python run.py   P1,2or3    1-12  A or B  1,2 or 3
 '''
-def validate_inputs(params):
-    print('')
-    return 
-
-if __name__ == "__main__":
+def validate_inputs(opts, args):
     problem_num = None
     pair = None
     image_num = None
-    P3_test = None
-    validate_inputs(sys.argv)
+    T3_test = None
+    
+    # obtain argument values
+    for opt, arg in opts:
+        print(opt)
+        if opt == "--problem_num":
+            problem_num = arg
+        elif opt == "--pair":
+            pair = "pair" + arg
+        elif opt == "--image_num":
+            image_num = arg
+        elif opt == "--T3_test":
+            T3_test = arg
+    
+    
+    return 
+
+if __name__ == "__main__":
+    
+    
     argv = sys.argv[1:]
-    opts, args = getopt.getopt(argv, '', ["problem_num =",
-                                          "pair =",
-                                          "image_num =",
-                                          "P3_test ="])
-    print(args)
-    print(opts)
+    opts, args = getopt.getopt(argv, '', ["problem_num=",
+                                          "pair=",
+                                          "image_num=",
+                                          "T3_test="])
+    validate_inputs(opts, args)
+    
     # define pair
     pair = 'pair11'
 
