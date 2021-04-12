@@ -4,8 +4,10 @@ from run import validate_arguments
 
 class TestValidation(unittest.TestCase):
     '''
-    Tests argument input validation for run.py
+    unittest for the validate_arguments function in circle-detection-py/run.py
+    most edge cases and possible occurances are tested for all four possible arguments
     '''
+    
     def test_problem_num(self):
         self.assertRaises(Exception, validate_arguments, [('--problem_num', '0')])
         self.assertRaises(Exception, validate_arguments, [('--problem_num', '-1')])

@@ -6,7 +6,13 @@ from testHelper import getCSV, getImage, getImageDir
 from runTask import solveProblem1
 from difflib import Differ
 
-class TestFindCentre(unittest.TestCase):
+class TestProblem1(unittest.TestCase):
+    
+    '''
+    unit test for the Problem1 function in circle-detection-py/runTask.py
+    tests are run on given image data set pair1 - pair 3 for both images A & B
+    no edge cases are tested
+    '''    
     
     def test_pair1_A(self):
         imageDir = getImageDir()
