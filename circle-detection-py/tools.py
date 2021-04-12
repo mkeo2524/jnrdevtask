@@ -9,7 +9,7 @@ from numpy import *
 import numpy as np
 from math import sqrt
 import scipy
-import cv2
+from cv2 import cv2
 from scipy.spatial import distance as dist
 from scipy.spatial import cKDTree
 from scipy.optimize import leastsq, fmin
@@ -55,7 +55,7 @@ def findCentre(image):
 
     # find circles and sort them
     crcl = cv2.findContours(imcopy, cv2.RETR_EXTERNAL,
-                            cv2.CHAIN_APPROX_SIMPLE)
+                            cv2.CHAIN_APPROX_SIMPLE)[0]
     if imutils.is_cv2():
         crcl = crcl[0]
     else:
@@ -79,6 +79,7 @@ def findCentre(image):
 
         midc12 = (c1 + c2) * 0.5
         midc34 = (c3 + c4) * 0.5
+        
         c = (midc12 + midc34) * 0.5
         centreList.append(c)
         radius = (dist.euclidean((midc12[0], midc12[1]), (midc34[0], midc34[1]))) * 0.5

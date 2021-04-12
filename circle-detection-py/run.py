@@ -6,13 +6,17 @@ given in the task.
 import sys
 import runTask as rt
 import getopt
+
 '''
 pair 1-12
 for runP1 
 python run.py problem pair image# P3SET
 python run.py   P1,2or3    1-12  A or B  1,2 or 3
 '''
-def validate_inputs(opts, args):
+
+
+def validate_arguments(opts):
+    
     problem_num = None
     pair = None
     image_num = None
@@ -58,7 +62,6 @@ def validate_inputs(opts, args):
     elif problem_num == '3' and (pair == None or T3_test == None):
         raise Exception("Please check requirements to test task 3")
     
-        
     return problem_num, pair, image_num, T3_test
 
 if __name__ == "__main__":
@@ -69,7 +72,7 @@ if __name__ == "__main__":
                                           "image_num=",
                                           "T3_test="])
     
-    problem_num, pair, image_num, T3_test = validate_inputs(opts, args)
+    problem_num, pair, image_num, T3_test = validate_arguments(opts)
     
     if problem_num == '1':
         rt.runP1("pair" + pair, image_num)

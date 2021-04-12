@@ -24,16 +24,14 @@ for gui in gui_env:
         continue
 
 def solveProblem1( im, pair, img ):
-    
-    print(im)
     image = cv2.imread(im)
     p, r = tools.findCentre(image)
-    
     outputDir = 'output/'+pair+'/'
+
     if not os.path.exists(outputDir):
         os.makedirs(outputDir)
     
-    file = open(outputDir+'/pos_rad_'+img+'.csv', "wb")
+    file = open(outputDir+'/pos_rad_'+img+'.csv', "w")
     file.write('Circle, Position (x y), Radius (px)\n')
     with open(outputDir+'/pos_rad_'+img+'.csv', "a") as csv_file:
         numCircles = 0
@@ -41,7 +39,7 @@ def solveProblem1( im, pair, img ):
             numCircles+=1
             file.write('%.0f , (%.0f %.0f), %.2f\n' 
             % (numCircles, p[data][0],p[data][1], r[data]))
-
+    file.close()
     return None
    
 def solveProblem2( im1, im2, pair ):
