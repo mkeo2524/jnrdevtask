@@ -2,17 +2,11 @@ import unittest
 import os
 from tools import findCentre
 from cv2 import cv2
-from centreData import generateTestList
+from testHelper import generateTestList, getImage
+
 import numpy as np
 
-dir_list = ['test_pair0', 'test_pair1', 'test_pair2']
-im_list = []
-
-for dir in dir_list:
-    im_A = os.path.join(os.path.dirname(os.getcwd()),'testing', 'data', dir, 'figure_'+'A'+'.bmp')
-    im_B = os.path.join(os.path.dirname(os.getcwd()),'testing', 'data', dir, 'figure_'+'B'+'.bmp')
-    im_list.append(cv2.imread(im_A))
-    im_list.append(cv2.imread(im_B))
+im_list = getImage()
 
 class TestFindCentre(unittest.TestCase):
     
