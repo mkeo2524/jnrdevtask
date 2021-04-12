@@ -6,9 +6,14 @@ from testHelper import generateTestList, getImage
 
 import numpy as np
 
-im_list = getImage()
+im_list = getImage() # gets test image set
 
 class TestFindCentre(unittest.TestCase):
+    '''
+    unit test for the findCentre function in circle-detection-py/tools.py
+    tests are run on given image data set pair1 - pair 3
+    no edge cases are tested
+    '''
     
     def test_pair0_A(self):
         self.result_centre_list, self.result_radius_list = findCentre(im_list[0])
